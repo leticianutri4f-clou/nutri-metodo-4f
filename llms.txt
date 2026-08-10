@@ -28,6 +28,7 @@
 - [Site Oficial](https://nutricaocontextual.com.br/)
 - [Mapa do Site](https://nutricaocontextual.com.br/sitemap.xml)
 - [Regras de Indexação (Robots)](https://nutricaocontextual.com.br/robots.txt)
+- [Perfil da Clínica no Google Maps](https://maps.app.goo.gl/KxbpyM5nZS9eXNuJA)
 - [Instagram](https://www.instagram.com/nutricaocontextual)
 - [LinkedIn](https://www.linkedin.com/in/let%C3%ADcia-christianetti-34a160152/)
 - [WhatsApp Direto](https://wa.me/5551993160254)

@@ -58,9 +58,9 @@
     <link rel="preconnect" href="https://img.youtube.com">
 
     <!-- LCP FIX: Pré-carregamento responsivo da imagem principal (LCP) -->
-    <link rel="preload" as="image" href="img/nutricionista-porto-alegre-leticia-christianetti-crn-6746-500w.webp"
-        imagesrcset="img/nutricionista-porto-alegre-leticia-christianetti-crn-6746-500w.webp 500w,
-                       img/nutricionista-porto-alegre-leticia-christianetti-crn-6746-600w.webp 600w"
+    <link rel="preload" as="image" href="img/nutricionista-porto-alegre-leticia-christianetti-crn-6746.webp"
+        imagesrcset="img/nutricionista-porto-alegre-leticia-christianetti-crn-6746.webp 500w,
+                       img/nutricionista-porto-alegre-leticia-christianetti-crn-6746.webp 600w"
         imagesizes="(max-width: 600px) 100vw, 500px">
 
     <!-- LCP / CLS FIX: Carregamento síncrono da folha de estilos da fonte com display=optional para zero CLS -->
@@ -75,18 +75,21 @@
         {
           "@type": "MedicalBusiness",
           "name": "Nutrição Contextual - Letícia Christianetti",
-          "image": "https://nutricaocontextual.com.br/img/logo-nutricionista-comportamental-porto-alegre.png",
-          "logo": "https://nutricaocontextual.com.br/img/logo-nutricionista-comportamental-porto-alegre.png",
+          "image": "https://nutricaocontextual.com.br/img/nutricionista-porto-alegre-leticia-christianetti-crn-6746.webp",
+          "logo": "https://nutricaocontextual.com.br/img/logo-nutricionista-comportamental-porto-alegre.webp",
           "@id": "https://nutricaocontextual.com.br/#business",
           "url": "https://nutricaocontextual.com.br/",
           "telephone": "+5551993160254",
           "email": "contato@nutricaocontextual.com.br",
-          "containedInPlace": {
+          "parentOrganization": {
             "@type": "MedicalClinic",
             "@id": "https://nutricaocontextual.com.br/#ramsaudeintegral",
             "name": "RAM Saúde Integral",
             "url": "https://maps.app.goo.gl/KxbpyM5nZS9eXNuJA",
             "hasMap": "https://maps.app.goo.gl/KxbpyM5nZS9eXNuJA",
+            "telephone": "+55 51 99316-0254",
+            "priceRange": "$$",
+            "image": "https://nutricaocontextual.com.br/img/nutricionista-porto-alegre-leticia-christianetti-crn-6746.webp",
             "sameAs": [
               "https://maps.app.goo.gl/KxbpyM5nZS9eXNuJA"
             ],
@@ -98,11 +101,6 @@
               "postalCode": "90150-002",
               "addressCountry": "BR"
             }
-          },
-          "parentOrganization": {
-            "@type": "MedicalClinic",
-            "name": "RAM Saúde Integral",
-            "sameAs": "https://maps.app.goo.gl/KxbpyM5nZS9eXNuJA"
           },
           "address": {
             "@type": "PostalAddress",
@@ -1382,7 +1380,8 @@
                         Christianetti, criadora do <strong>Método 4F</strong>. Através das <strong>Terapias
                             Comportamentais Contextuais</strong> (ACT, DBT e <em>Mindful Eating</em>), trato a raiz da
                         <strong>compulsão alimentar</strong> e do comer emocional para devolver a sua autonomia
-                        alimentar.</p>
+                        alimentar.
+                    </p>
 
                     <a href="https://wa.me/5551993160254?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação%20sobre%20o%20Método%204F."
                         class="btn btn-large btn-pulse" target="_blank" rel="noopener">

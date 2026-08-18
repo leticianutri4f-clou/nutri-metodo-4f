@@ -54,6 +54,8 @@ Disallow: /
 # 3. Regra Geral para outros bots
 User-agent: *
 Allow: /
+Disallow: /*?s=*
+Disallow: /*?search*
 
 # 4. SITEMAP
 Sitemap: https://nutricaocontextual.com.br/sitemap.xml

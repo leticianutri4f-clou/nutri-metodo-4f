@@ -29,6 +29,7 @@
 
     <!-- TAGS DE IDIOMA E REGIONALIZAÇÃO (HREFLANG) -->
     <link rel="alternate" hreflang="pt-BR" href="https://nutricaocontextual.com.br/">
+    <link rel="alternate" hreflang="x-default" href="https://nutricaocontextual.com.br/">
     <link rel="canonical" href="https://nutricaocontextual.com.br/">
 
     <!-- SEGURANÇA E PRIVACIDADE -->
@@ -39,6 +40,7 @@
     <meta property="og:description" content="Tratamento da compulsão alimentar através do Método 4F e Terapias Contextuais. Consulta presencial no Menino Deus ou Online.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://nutricaocontextual.com.br/">
+    <meta property="og:locale" content="pt_BR">
     <meta property="og:image" content="https://nutricaocontextual.com.br/img/nutricionista-porto-alegre-leticia-christianetti-crn-6746.webp">
     <meta property="og:site_name" content="Nutrição Contextual - Letícia Christianetti">
 
@@ -56,9 +58,9 @@
     <!-- LCP FIX: Pré-carregamento responsivo da imagem principal (LCP) -->
     <link rel="preload" as="image" href="img/nutricionista-porto-alegre-leticia-christianetti-crn-6746.webp" imagesrcset="img/nutricionista-porto-alegre-leticia-christianetti-crn-6746-500w.webp 500w, img/nutricionista-porto-alegre-leticia-christianetti-crn-6746-600w.webp 600w" imagesizes="(max-width: 600px) 100vw, 500px">
 
-    <!-- LCP / CLS FIX: Carregamento síncrono da folha de estilos da fonte com display=optional para zero CLS -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@600;700;800;900&display=optional">
+    <!-- LCP / CLS FIX: Carregamento assíncrono da folha de estilos da fonte -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@600;700;800;900&display=swap"></noscript>
 
     <!-- SCHEMA MARKUP (MedicalBusiness + Person + FAQPage) -->
     <script type="application/ld+json">
@@ -128,13 +130,35 @@
               "@type":"OpeningHoursSpecification",
               "dayOfWeek":[
                 "Monday",
-                "Tuesday",
+                "Tuesday"
+              ],
+              "opens":"09:00",
+              "closes":"17:00"
+            },
+            {
+              "@type":"OpeningHoursSpecification",
+              "dayOfWeek":[
                 "Wednesday",
-                "Thursday",
+                "Thursday"
+              ],
+              "opens":"07:00",
+              "closes":"20:00"
+            },
+            {
+              "@type":"OpeningHoursSpecification",
+              "dayOfWeek":[
                 "Friday"
               ],
+              "opens":"07:00",
+              "closes":"15:00"
+            },
+            {
+              "@type":"OpeningHoursSpecification",
+              "dayOfWeek":[
+                "Saturday"
+              ],
               "opens":"08:00",
-              "closes":"18:00"
+              "closes":"12:00"
             }
           ],
           "contactPoint":[
@@ -1332,7 +1356,8 @@
                     alt="Logo Nutrição Contextual - Nutricionista em Porto Alegre" class="logo-img" width="150"
                     height="100" fetchpriority="high" decoding="async">
             </a>
-            <div class="header-contact">
+            <div class="header-contact" style="display: flex; align-items: center; gap: 15px;">
+                <a href="artigos/" style="font-family: var(--font-heading); font-weight: 700; color: var(--color-primary-dark);">Artigos</a>
                 <a href="tel:+5551993160254" class="header-phone" aria-label="Ligar para Nutricionista">
                     (51) 99316-0254
                 </a>
@@ -1379,9 +1404,8 @@
                 </div>
                 <div class="hero-image-wrapper fade-in-section">
                     <figure class="hero-image">
-                        <!-- Imagem de espaço reservado. Substitua pela URL da foto profissional -->
-                        <img src="img/nutricionista-porto-alegre-leticia-christianetti-crn-6746-4x5.webp" srcset="img/nutricionista-porto-alegre-leticia-christianetti-crn-6746.webp,
-                                     img/nutricionista-porto-alegre-leticia-christianetti-crn-6746.webp"
+                        <img src="img/nutricionista-porto-alegre-leticia-christianetti-crn-6746-4x5.webp" srcset="img/nutricionista-porto-alegre-leticia-christianetti-crn-6746-500w.webp 500w,
+                                     img/nutricionista-porto-alegre-leticia-christianetti-crn-6746-600w.webp 600w"
                             sizes="(max-width: 600px) 100vw, 500px"
                             alt="Letícia Christianetti, Nutricionista Comportamental no consultório em Porto Alegre"
                             width="500" height="625" fetchpriority="high" decoding="async"
@@ -2175,6 +2199,7 @@
                         target="_blank" rel="noopener noreferrer">WhatsApp: (51) 99316-0254</a>
                     <a href="https://www.instagram.com/nutricaocontextual/" target="_blank" rel="noopener noreferrer"
                         style="display:block; margin-top:5px;">Instagram: @nutricaocontextual</a>
+                    <a href="artigos/" style="display:block; margin-top:5px; color: var(--color-secondary); text-decoration: underline;">Central de Artigos</a>
                     <p>Atendimento Online via Videoconsulta</p>
                     <p>Atendimento Presencial Exclusivo</p>
                     <p style="margin-top: 10px; font-size: 0.85rem;">Consulta Particular.</p>
@@ -2202,7 +2227,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; <time datetime="2026">2026</time> Nutrição Contextual. Todos os direitos reservados. | Desenvolvido por <a href="https://prapdigital.com.br/landing-page-porto-alegre/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline; color: inherit;">Prap Digital</a></p>
+                <p>&copy; <time datetime="2026">2026</time> Nutrição Contextual. Todos os direitos reservados. | Desenvolvido por <a href="https://prapdigital.com.br/" target="_blank" rel="noopener noreferrer nofollow sponsored" style="text-decoration: underline; color: inherit;">Prap Digital</a></p>
             </div>
         </div>
     </footer>

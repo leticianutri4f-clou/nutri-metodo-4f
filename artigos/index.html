@@ -132,9 +132,12 @@
         .btn:hover { background-color: var(--color-accent-hover); color: #FFFFFF !important; transform: translateY(-3px); animation: none; box-shadow: 0 8px 25px rgba(18, 140, 126, 0.4); }
         .header-btn { padding: 10px 20px; font-size: 0.9rem; }
 
-        .header-phone-link { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background-color: var(--color-primary-light); transition: var(--transition); }
-        .header-phone-link:hover { background-color: var(--color-primary-dark); }
-        .header-phone-link svg { fill: white; width: 20px; height: 20px; }
+        .header-contact { display: flex; align-items: center; gap: 20px; }
+        .nav-link-artigos { font-family: var(--font-heading); font-weight: 800; color: var(--color-brand-coral); font-size: 1.1rem; text-decoration: none; border-bottom: 2px solid var(--color-brand-coral); padding-bottom: 2px; transition: var(--transition); }
+        .nav-link-artigos:hover { color: var(--color-brand-coral-dark); border-bottom-color: var(--color-brand-coral-dark); }
+        .header-phone-icon { display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; background-color: var(--color-primary-light); border-radius: 50%; transition: var(--transition); }
+        .header-phone-icon:hover { background-color: var(--color-primary-dark); transform: scale(1.05); }
+        .header-phone-icon svg { fill: white; width: 22px; height: 22px; }
         .site-header { background-color: var(--color-bg); padding: 15px 0; box-shadow: var(--shadow-sm); position: sticky; top: 0; z-index: 100; }
         .header-content { display: flex; justify-content: space-between; align-items: center; }
         .logo-img { height: 85px; width: auto; object-fit: contain; transform: scale(1.2); transform-origin: left center; }
@@ -241,6 +244,11 @@
         @media (max-width: 900px) {
             .hero-article h1 { font-size: 2.2rem; }
             .logo-img { height: 50px; }
+            .header-contact { flex-direction: row; align-items: center; justify-content: flex-end; gap: 10px; text-align: right; }
+            .nav-link-artigos { font-size: 0.95rem; }
+            .header-phone-icon { width: 36px; height: 36px; }
+            .header-phone-icon svg { width: 18px; height: 18px; }
+            .header-btn { display: flex; padding: 8px 16px; font-size: 0.8rem; }
         }
     </style>
 </head>
@@ -251,10 +259,9 @@
             <a href="../" class="logo" aria-label="Página inicial Nutrição Contextual">
                 <img src="../img/logo-nutricionista-comportamental-porto-alegre.webp" alt="Logo Nutrição Contextual - Nutricionista em Porto Alegre" class="logo-img" width="160" height="90" decoding="async">
             </a>
-            <div class="header-contact" style="display: flex; align-items: center; gap: 15px;">
-                <a aria-current="page" style="font-family: var(--font-heading); font-weight: 700; color: var(--color-brand-coral); text-decoration: underline;">Artigos</a>
-                <a href="tel:+5551993160254" class="header-phone-link" aria-label="Ligar para Letícia Christianetti">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M6.54 5c.06.89.21 1.76.45 2.59l-1.2 1.2c-.41-1.2-.67-2.47-.76-3.79h1.51m10.92 14c.85-.24 1.72-.39 2.59-.45v1.51c-1.32-.09-2.59-.35-3.79-.76l1.2-1.2M7.5 3H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.49c0-.55-.45-1-1-1-1.24 0-2.45-.2-3.57-.57-.1-.04-.21-.05-.31-.05-.26 0-.51.1-.71.29l-2.2 2.2c-2.83-1.45-5.15-3.76-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02C8.7 6.45 8.5 5.25 8.5 4c0-.55-.45-1-1-1z"/></svg>
+            <div class="header-contact">
+                <a href="tel:+5551993160254" class="header-phone-icon" aria-label="Ligar para Nutricionista" title="(51) 99316-0254">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                 </a>
                 <a href="https://wa.me/5551993160254?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação." class="btn btn-pulse header-btn" target="_blank" rel="noopener noreferrer">
                     Agendar Avaliação

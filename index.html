@@ -716,18 +716,42 @@
             gap: 20px;
         }
 
-        .header-phone {
+        .nav-link-artigos {
             font-family: var(--font-heading);
+            font-weight: 800;
+            color: var(--color-brand-coral);
             font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--color-primary-dark);
+            text-decoration: none;
+            border-bottom: 2px solid var(--color-brand-coral);
+            padding-bottom: 2px;
             transition: var(--transition);
-            white-space: nowrap;
         }
 
-        .header-phone:hover {
-            color: var(--color-brand-coral);
-            text-decoration: underline;
+        .nav-link-artigos:hover {
+            color: var(--color-brand-coral-dark);
+            border-bottom-color: var(--color-brand-coral-dark);
+        }
+
+        .header-phone-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background-color: var(--color-primary-light);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .header-phone-icon:hover {
+            background-color: var(--color-primary-dark);
+            transform: scale(1.05);
+        }
+
+        .header-phone-icon svg {
+            width: 22px;
+            height: 22px;
+            fill: #FFFFFF;
         }
 
         .logo {
@@ -1289,24 +1313,25 @@
             /* Smaller logo */
             .header-contact {
                 display: flex;
-                /* Make it visible */
-                flex-direction: column;
-                /* Stack phone and button vertically */
-                align-items: flex-end;
-                /* Align to the right */
-                gap: 5px;
-                /* Small gap between stacked items */
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-end;
+                gap: 10px;
                 text-align: right;
-                /* Text alignment */
             }
 
-            .header-phone {
-                display: block;
-                /* Make the phone number visible */
-                font-size: 0.85rem;
-                /* Smaller font for mobile */
-                padding: 2px 0;
-                /* Some padding */
+            .nav-link-artigos {
+                font-size: 0.95rem;
+            }
+
+            .header-phone-icon {
+                width: 36px;
+                height: 36px;
+            }
+
+            .header-phone-icon svg {
+                width: 18px;
+                height: 18px;
             }
 
             .header-btn {
@@ -1356,10 +1381,10 @@
                     alt="Logo Nutrição Contextual - Nutricionista em Porto Alegre" class="logo-img" width="150"
                     height="100" fetchpriority="high" decoding="async">
             </a>
-            <div class="header-contact" style="display: flex; align-items: center; gap: 15px;">
-                <a href="artigos/" style="font-family: var(--font-heading); font-weight: 700; color: var(--color-primary-dark);">Artigos</a>
-                <a href="tel:+5551993160254" class="header-phone" aria-label="Ligar para Nutricionista">
-                    (51) 99316-0254
+            <div class="header-contact">
+                <a href="artigos/" class="nav-link-artigos">Artigos</a>
+                <a href="tel:+5551993160254" class="header-phone-icon" aria-label="Ligar para Nutricionista" title="(51) 99316-0254">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
                 </a>
                 <a href="https://wa.me/5551993160254?text=Olá!%20Gostaria%20de%20agendar%20uma%20avaliação%20sobre%20o%20Método%204F."
                     class="btn btn-pulse header-btn" target="_blank" rel="noopener">

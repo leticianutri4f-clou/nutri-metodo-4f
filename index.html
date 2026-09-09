@@ -1768,8 +1768,10 @@
 
                 <div class="video-wrapper" id="videoWrapper" data-video-id="ST7IJkqMAl4"
                     style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--border-radius); box-shadow: var(--shadow-md); max-width: 900px; margin: 0 auto; background-color: #000;">
+                    <div id="iframeContainer" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;"></div>
+
                     <!-- Vídeo otimizado com placeholder (Evita bloqueio de renderização do iframe) -->
-                    <div class="video-placeholder"
+                    <div class="video-placeholder" id="videoPlaceholder"
                         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: pointer; display: flex; align-items: center; justify-content: center; background-color: #000;">
                         <img src="img/nutricao-contextual-metodo-4f-leticia-christianetti-crn-6746.webp"
                             alt="Capa do Vídeo Explicativo Método 4F" width="900" height="506" loading="lazy"
@@ -1783,6 +1785,14 @@
                             </svg>
                         </button>
                     </div>
+
+                    <!-- Botão customizado de tela cheia para o player de Shorts -->
+                    <button id="btnFullscreenOverlay" aria-label="Tela Cheia" title="Assistir em Tela Cheia" style="display: none; position: absolute; bottom: 20px; right: 20px; z-index: 10; background: rgba(0,0,0,0.8); color: white; border: 1px solid rgba(255,255,255,0.4); border-radius: 8px; padding: 10px 16px; cursor: pointer; font-family: var(--font-heading); font-weight: 700; font-size: 0.9rem; align-items: center; gap: 8px; transition: background 0.3s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.5);">
+                        <svg viewBox="0 0 24 24" width="20" height="20" style="fill: white;">
+                            <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                        </svg>
+                        Tela Cheia
+                    </button>
                 </div>
             </div>
         </section>
@@ -2259,13 +2269,56 @@
 
             faders.forEach(fader => appearOnScroll.observe(fader));
 
-            // Ativar Vídeo (Lazy Load Iframe)
+            // Ativar Vídeo e Tela Cheia (Lazy Load Iframe)
             const videoWrapper = document.getElementById('videoWrapper');
-            if (videoWrapper) {
-                videoWrapper.addEventListener('click', function () {
-                    const videoId = this.getAttribute('data-video-id');
-                    this.innerHTML = '<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/' + videoId + '?autoplay=1" title="Nutricionista Letícia Christianetti Metodo 4f" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+            const videoPlaceholder = document.getElementById('videoPlaceholder');
+            const iframeContainer = document.getElementById('iframeContainer');
+            const btnFullscreenOverlay = document.getElementById('btnFullscreenOverlay');
+
+            if (videoPlaceholder && videoWrapper) {
+                videoPlaceholder.addEventListener('click', function () {
+                    const videoId = videoWrapper.getAttribute('data-video-id');
+                    iframeContainer.innerHTML = '<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/' + videoId + '?autoplay=1&controls=1&fs=1&rel=0&modestbranding=1" title="Nutricionista Letícia Christianetti Metodo 4f" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+                    videoPlaceholder.style.display = 'none';
+                    if (btnFullscreenOverlay) {
+                        btnFullscreenOverlay.style.display = 'flex';
+                    }
                 });
+            }
+
+            if (btnFullscreenOverlay && videoWrapper) {
+                btnFullscreenOverlay.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (!document.fullscreenElement && !document.webkitFullscreenElement) {
+                        if (videoWrapper.requestFullscreen) {
+                            videoWrapper.requestFullscreen();
+                        } else if (videoWrapper.webkitRequestFullscreen) { /* Safari */
+                            videoWrapper.webkitRequestFullscreen();
+                        } else if (videoWrapper.msRequestFullscreen) { /* IE11 */
+                            videoWrapper.msRequestFullscreen();
+                        }
+                    } else {
+                        if (document.exitFullscreen) {
+                            document.exitFullscreen();
+                        } else if (document.webkitExitFullscreen) { /* Safari */
+                            document.webkitExitFullscreen();
+                        } else if (document.msExitFullscreen) { /* IE11 */
+                            document.msExitFullscreen();
+                        }
+                    }
+                });
+                
+                // Mudar texto do botão quando entra/sai da tela cheia
+                document.addEventListener('fullscreenchange', updateFullscreenButton);
+                document.addEventListener('webkitfullscreenchange', updateFullscreenButton);
+                
+                function updateFullscreenButton() {
+                    if (document.fullscreenElement || document.webkitFullscreenElement) {
+                        btnFullscreenOverlay.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" style="fill: white;"><path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"/></svg> Sair da Tela Cheia';
+                    } else {
+                        btnFullscreenOverlay.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" style="fill: white;"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg> Tela Cheia';
+                    }
+                }
             }
         });
     </script>
